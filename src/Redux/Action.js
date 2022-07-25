@@ -22,7 +22,7 @@ export const addNewProduct = (id) => {
                 console.log(res.data)
                 dispatch ({
                     type: 'ADD_TO_CART',
-                    payload:[...getState().cart, id]
+                    payload: res.data
                 })
             })
     }
