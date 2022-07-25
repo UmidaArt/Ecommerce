@@ -10,6 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import img from '../../Assets/Images/img.png'
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {NavLink} from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -56,6 +58,17 @@ const HeaderBar = styled('div')(({ theme }) => ({
     boxShadow: '0 0 0 0',
 }))
 
+const Close = styled('a')(({ theme }) => ({
+    color: "#1f71a7",
+    cursor: 'pointer',
+    padding: theme.spacing(2, 0),
+    marginTop: '5px'
+}))
+const Basket = styled('a')(({ theme }) => ({
+    color: "#1f71a7",
+    cursor: 'pointer',
+    padding: theme.spacing(1, 2),
+}))
 
 export default function Header() {
     return (
@@ -83,13 +96,20 @@ export default function Header() {
                                     placeholder="useless items on white background"
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
-                                <CloseIcon sx={{ mr: 1 }} />
+                                <Close>
+                                    <CloseIcon sx={{ mr: 1 }} />
+                                </Close>
                             </Search>
                             <Box sx={{ flexGrow: 1 }} />
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                 <Button variant="text" sx={{ mr: 2 }}>Register</Button>
                                 <Button variant="outlined"  sx={{ mr: 2 }}>Sign in</Button>
                                 <Button variant="outlined" sx={{ mr: 2 }}>My cart</Button>
+                                <Basket>
+                                    <NavLink to="/cart">
+                                        <ShoppingCartIcon/>
+                                    </NavLink>
+                                </Basket>
                             </Box>
                             <Avatar alt="Remy Sharp" src={img} />
                         </Toolbar>
