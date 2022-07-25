@@ -4,7 +4,7 @@ const apiUrl = 'https://62da58029eedb699636bc313.mockapi.io/prodacts'
 
 export const getAllProducts = () => {
     return (dispatch) => {
-        // axios.get(`${apiUrl}`)
+        axios.get(`${apiUrl}`)
             .then((res => {
                 console.log(res.data)
                 dispatch ({
@@ -17,7 +17,7 @@ export const getAllProducts = () => {
 
 export const addNewProduct = (id) => {
     return (dispatch, getState) => {
-        // axios.post(`${apiUrl}`,{id})
+        axios.post(`${apiUrl}`,{id})
             .then(res => {
                 console.log(res.data)
                 dispatch ({
