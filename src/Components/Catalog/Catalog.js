@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Grid} from "@mui/material";
@@ -15,18 +15,15 @@ import {styled} from "@mui/material/styles";
 
 const Catalog = () => {
 
-    const [product, setProduct] = useState('')
-
     const dispatch = useDispatch()
     const {products} = useSelector((store) => store)
 
     useEffect(() => {
         dispatch(getAllProducts())
-        setProduct('')
     }, [dispatch])
 
-    const handleClick = () => {
-        dispatch(addNewProduct(product))
+    const handleClick = (id) => {
+        dispatch(addNewProduct(id))
     }
 
     const ItemCard = styled('div')(({ theme }) => ({

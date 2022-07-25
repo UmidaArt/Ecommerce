@@ -12,8 +12,8 @@ const storeReducer = (state = initialState, action) => {
         case 'GAT_ALL_PRODUCTS':
             return {...state, products: action.payload}
         case 'ADD_TO_CART':
+            console.log(state)
             return {...state, cart: action.payload}
-        console.log(state)
         case 'DELETE_PRODUCT':
             return {...state, cart: action.payload}
         default:
